@@ -22,14 +22,20 @@ namespace WpfApp_DataBinding_4
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Person person = new Person() { Name = "Sauron", Age = "1000" };
+        private Person person = new Person("Sauron", "1000");
 
         public MainWindow()
         {
             InitializeComponent();
 
-            textBox1.DataContext = person;
-            textBox2.DataContext = person;
+            Binding binding1 = new Binding("Name");
+            binding1.Source = person;
+            textBox1.SetBinding(TextBox.TextProperty, binding1);
+
+            Binding binding2 = new Binding("Age");
+            binding2.Source = person;
+            textBox2.SetBinding(TextBox.TextProperty, binding2);
+
         }
 
         private void EditClick(object sender, RoutedEventArgs e)
@@ -40,6 +46,8 @@ namespace WpfApp_DataBinding_4
             string message = person.Name + " is " + person.Age;
 
             MessageBox.Show(message);
+
+            string debug = "debug";
         }
 
         private void ShowClick(object sender, RoutedEventArgs e)
@@ -47,12 +55,15 @@ namespace WpfApp_DataBinding_4
             string message = person.Name + " is " + person.Age;
 
             MessageBox.Show(message);
+
+            string debug = "debug";
         }
     }
 
-    public class Person : INotifyPropertyChanged
+    public class Person
     {
-        private string name;
+        private string? name;
+        private string? age;
         public string? Name
         {
             get
@@ -62,18 +73,24 @@ namespace WpfApp_DataBinding_4
             set
             {
                 name = value;
-                this.NotifyPropertyChanged("Name");
             }
         }
-        public string? Age { get; set; }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void NotifyPropertyChanged(string propName)
+        public string? Age
         {
-            if (this.PropertyChanged != null)
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            get
+            {
+                return age;
+            }
+            set
+            {
+                age = value;
+            }
+        }
+
+        public Person(string name, string age)
+        {
+            this.name = name;
+            this.age = age;
         }
     }
 }
