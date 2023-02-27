@@ -8,6 +8,9 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
+            <GroupBox Header="Description">
+                <TextBlock Text="By not implementing INotfiyPropertyChanged to Person class, interface, changes are not shown on UI."></TextBlock>
+            </GroupBox>
             <GroupBox Header="Showing the Person Class to UI">
                 <StackPanel>
                     <TextBox Name="textBox1" Text="{Binding Name, Mode=TwoWay}"></TextBox>
@@ -18,10 +21,10 @@
                 <StackPanel>
                     <TextBox Name="textBox3"></TextBox>
                     <TextBox Name="textBox4"></TextBox>
-                    <Button Click="EditClick" Content="Edit"></Button>
+                    <Button Click="EditClick" Content="Edit Person Class"></Button>
                 </StackPanel>
             </GroupBox>
-            <Button Click="ShowClick" Content="Show Current Situation"></Button>
+            <Button Click="ShowClick" Content="Show Current Person Class"></Button>
         </StackPanel>
     </Grid>
 </Window>
