@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfApp_BackgroundWorker_4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_BackgroundWorker_4"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Input Argument"></TextBlock>
+            <TextBox Name="textBox1"></TextBox>
+            <Button Name="button1" Content="Run" Click="Button1Click"></Button>
+            <ProgressBar Name="progressBar1" Minimum="0" Maximum="100" Height="20"></ProgressBar>
+            <TextBox Name="textBox2" TextWrapping="Wrap" Height="60" VerticalScrollBarVisibility="Visible" IsReadOnly="True"></TextBox>
+            <TextBlock Text="Output: "></TextBlock>
+            <TextBox Name="textBox3" TextWrapping="Wrap" Height="60" VerticalScrollBarVisibility="Visible" IsReadOnly="True"></TextBox>
+        </StackPanel>
+    </Grid>
+</Window>
